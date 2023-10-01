@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./static/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./static//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./static//favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+      <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-800">
+    <div class=" rounded-lg  shadow-slate-400 relative border-2 bg-slate-300 border-black md:max-w-prose sm:max-w-screen-sm max-w-screen-lg h-screen m-auto">
+    <div>
+        <img id="logoImage" title="Good Luck!" class=" cursor-pointer transition-opacity duration-500 m-auto rounded-full w-60 h-auto my-9 border-2 border-slate-950" src="./static/welcome.png" alt="quizImage" srcset="">
+    </div>
+    <h1 class="text-center m-auto md:text-3xl sm:text-2xl capitalize font-serif font-bold">Welcome to Quiz Application</h1>
+    <div class="border-2 mx-6 p-0 md:mt-2">
+        <form action="" class="mx-10 my-10 flex-col items-center m-auto">
+        <label for="username" class="capitalize  items-center font-serif text-xl">username:</label>
+        <input onkeyup="getPassword()" type="text" name="username" id="emailAdd" class="mx-6 w-80 md:mx-6 md:w-80 sm:max-w-screen-sm rounded-lg h-10 py-1.5 pl-4 ring-2">
+        <!-- <p id="validator" class="opacity-0 flex justify-center items-center ml-12 my-1">Invalid username.</p> -->
+        <br><br>
+        <label for="password" class="capitalize items-center text-xl">Password:</label>
+        <input onkeyup="getPassword()" type="password" name="password" id="pwdValidate" class="mx-8 w-80 md:w-80 sm:max-w-screen-sm md:mx-8  rounded-lg h-10 py-1.5 pl-4 ring-2">
+    <p id="pwdValidator" class="opacity-0 flex justify-center items-center ml-14  my-1">Incorrect Username or Password.</p> 
+    <button id="nextBtn" onclick="validateUserPassword()" type="button" class="flex justify-center items-center md:-mt-4 -mb-9 bg-green-700 text-white rounded  py-2 px-6 uppercase mx-auto">next</button>   
+    </form>
+    </div>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>
