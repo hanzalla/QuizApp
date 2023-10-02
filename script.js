@@ -64,3 +64,25 @@ function validateUserPassword() {
         anchor.click();
     }
 }
+
+
+
+function menubar_visible() {
+    let menu_bar = document.getElementById('menu_bar');
+    let bars = document.getElementById('bars');
+    let icons = document.querySelector('i');
+
+    if (icons.className == "fa-solid fa-bars") {
+        menu_bar.classList.remove('hidden', 'sm:hidden');
+        icons.classList.add('transition-transform', 'ease-in-out', 'duration-150');
+        icons.className = "fa-solid fa-x";
+    }
+    else {
+        menu_bar.classList.add('hidden', 'sm:hidden');
+        icons.className = "fa-solid fa-bars";
+
+    }
+
+
+
+}

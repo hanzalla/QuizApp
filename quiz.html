@@ -9,9 +9,37 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./static//favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./static//favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
+<script src="https://kit.fontawesome.com/85946bf552.js" crossorigin="anonymous"></script>
       <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <div>
+        <nav class=" md:flex lg:justify-between justify-between md:items-center bg-slate-500">
+            <div class="flex items-center ">
+                <h1 class=" ml-10 -mr-96 uppercase text-3xl font-serif p-2 text-zinc-100 cursor-pointer">Quiz</h1>
+            </div>
+            <div>
+                <ul id="menu_bar" class="md:flex hidden md:items-center sm:hidden lg:space-x-10 md:mr-36  md:space-x-4 md:space-y-0 text-center space-y-8  uppercase text-xl m-3 p-2 text-zinc-100 font-serif">
+                    <li class="hover:translate-x-1 hover:cursor-pointer hover:underline hover:underline-offset-8 transition ease-in-out duration-75 ">dashboard</li>
+                    <li class="hover:translate-x-1 hover:cursor-pointer hover:underline hover:underline-offset-8 transition ease-in-out duration-75 ">users</li>
+                    <li class="hover:translate-x-1 hover:cursor-pointer hover:underline hover:underline-offset-8 transition ease-in-out duration-75 ">reports</li>
+                    <li class="hover:translate-x-1 hover:cursor-pointer hover:underline hover:underline-offset-8 transition ease-in-out duration-75 ">settings</li>
+                </ul>
+            </div>
+            <h1 onclick="menubar_visible()" id="bars"  class=" cursor-pointer md:hidden text-2xl font-serif text-zinc-100 flex justify-end absolute right-8 top-4 pb-2"><i class="fa-solid fa-bars"></i></h1>
+            <div>
+                <ul class="flex float-right md:items-center absolute lg:top-4 top-3 right-20 m-auto space-x-12 pb-2 text-zinc-100 text-2xl">
+                    <li><i class="fa-regular fa-bell hover:cursor-pointer hover:-translate-y-2 transition-transform ease-in-out duration-500 delay-75"></i></li>
+                    <li><i class="fa-regular fa-circle-question hover:cursor-pointer hover:-translate-y-2 transition-transform ease-in-out duration-500 delay-75"></i></li>
+                    <li><i class="fa-solid fa-right-to-bracket hover:cursor-pointer hover:-translate-y-2 transition-transform ease-in-out duration-500 delay-75"></i></li>
+                </ul>
+                
+            </div>
+            
+        </nav>
+        
+    </div>
     
 </body>
+<script src="script.js"></script>
 </html>
