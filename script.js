@@ -86,3 +86,12 @@ function menubar_visible() {
 
 
 }
+
+function closeSignup() {
+    let mainDiv = document.getElementById('mainDiv');
+    let sign_up = document.getElementById('sign_up');
+    mainDiv.classList.remove('blur-md');
+    sign_up.classList.add('hidden');
+
+
+}

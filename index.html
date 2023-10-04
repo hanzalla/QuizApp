@@ -9,10 +9,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./static//favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./static//favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
+<script src="https://kit.fontawesome.com/85946bf552.js" crossorigin="anonymous"></script>
       <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-800">
-    <div class=" rounded-lg  shadow-slate-400 relative border-2 bg-slate-300 border-black md:max-w-prose sm:max-w-screen-sm max-w-screen-lg h-screen m-auto">
+<body class="bg-slate-800 ">
+    <div id="mainDiv" class=" rounded-lg blur-md shadow-slate-400 relative border-2 bg-slate-300 border-black md:max-w-prose sm:max-w-screen-sm max-w-screen-lg h-screen m-auto">
     <div>
         <img id="logoImage" title="Good Luck!" class=" cursor-pointer transition-opacity duration-500 m-auto rounded-full w-60 h-auto my-9 border-2 border-slate-950" src="./static/welcome.png" alt="quizImage" srcset="">
     </div>
@@ -29,6 +30,49 @@
     <button id="nextBtn" onclick="validateUserPassword()" type="button" class="flex justify-center items-center md:-mt-4 -mb-9 bg-green-700 text-white rounded  py-2 px-6 uppercase mx-auto">next</button>   
     </form>
     </div>
+    </div>
+    <div id="sign_up" class="flex justify-center items-center">
+        <div class=" absolute md:top-28 top-0 max-w-screen-sm h-screen rounded-lg shadow-lg transition-all ease-in-out duration-150 hover:shadow-slate-50 hover:border-none container md:max-w-screen-lg md:h-auto border-2  bg-zinc-700   items-center text-center ">
+            <h1 class="float-right font-serif cursor-pointer m-4 uppercase text-3xl px-4 text-zinc-200"><i onclick="closeSignup()" class="fa-solid fa-x"></i></h1>
+            <div class="ml-16">
+                <h1 class=" flex justify-center font-serif md:mt-2 mt-10 uppercase text-3xl p-2 underline underline-offset-8 text-zinc-200 rounded-md ">registeration</h1>
+            </div>
+            <div class="capitalize">
+                <table class=" mx-auto table-fixed border-separate border-spacing-5 text-zinc-100 ">
+                    <thead class="">
+                    <th colspan="3" class="text-2xl underline underline-offset-8 hover:decoration-zinc-500 cursor-not-allowed decoration-wavy font-serif">Create user</th>
+                    </thead>
+                    <tbody class="">
+                    <tr>
+                        <td><label class="float-left"  for="fname">first name:</label></td>
+                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lname">last name:</label></tdclass=>
+                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="float-left" for="gender">gender:</label></tdass=>
+                        <td class="float-left"><input type="radio" id="Male" value="Male" name="gender" class="mx-2">Male</td>
+                        <td class="float-left ml-4"><input type="radio" id="female" value="Female" name="gender" class="mx-2">female</td>
+
+                    </tr>
+                    <tr>
+                        <td><label for="emailAdd" class="float-left">email:</label></tdclass=>
+                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password" class="float-left">password:</label></tdass=>
+                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="flex justify-center items-center m-4">
+            <button class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">next</button>
+            <button class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">Login as guest</button>
+            </div>
+            </div>
+        </div>
     </div>
     
 </body>
