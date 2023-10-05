@@ -1,8 +1,11 @@
 const pswdValidate = document.getElementById('pwdValidate');
 const logoImage = document.getElementById('logoImage');
 const userName = document.getElementById('emailAdd');
-let invalidUsername = document.getElementById('validator');
-let invalidPassword = document.getElementById('pwdValidator');
+var invalidUsername = document.getElementById('validator');
+var invalidPassword = document.getElementById('pwdValidator');
+var mainDiv = document.getElementById('mainDiv');
+var sign_up = document.getElementById('sign_up');
+var loginPage = document.getElementById('loginPage');
 var pwdImageSource = './static/wrongPswd.png';
 var corImageSource = './static/correctPwd.png';
 var originalImageSource = './static/welcome.png';
@@ -54,14 +57,20 @@ function validateUserPassword() {
         userName.classList.add('border-2', 'border-red-700');
         pwdValidator.classList.add('mb-6');
     }
-    if (pwd === 'test' && usrname === 'test') {
-        alert('Login Sucessfully!');
-        let anchor = document.createElement('a');
+    if (usrname === 'test') {
+        if (pwd === 'test') {
+            alert('Login Sucessfully!');
+            let anchor = document.createElement('a');
 
-        anchor.href = 'quiz.html';
-        anchor.target = "_blank";
+            anchor.href = 'quiz.html';
+            anchor.target = "_blank";
 
-        anchor.click();
+            anchor.click();
+        } else {
+            alert('Invalid Login Details.');
+
+        }
+
     }
 }
 
@@ -87,11 +96,43 @@ function menubar_visible() {
 
 }
 
+
+
+function registerationForm() {
+    let body = document.querySelector('body');
+    loginPage.classList.add('blur-lg');
+    sign_up.classList.remove('hidden', 'opacity-100');
+    let timeOut;
+}
+
+        
 function closeSignup() {
-    let mainDiv = document.getElementById('mainDiv');
-    let sign_up = document.getElementById('sign_up');
+
     mainDiv.classList.remove('blur-md');
+    loginPage.classList.remove('blur-lg');
     sign_up.classList.add('hidden');
 
 
 }
+
+
+
+
+window.onload = function () {
+    let sinupdiv = document.getElementById('sinupdiv');
+    let mainDiv = document.getElementById('mainDiv');
+    if (sinupdiv) {
+        setTimeout(() => {
+            sinupdiv.classList.remove('hidden');
+            mainDiv.classList.add('blur-md');
+        }, 10000);
+
+    }
+
+
+}
+
+
+setInterval(() => {
+
+}, interval);
