@@ -99,40 +99,62 @@ function menubar_visible() {
 
 
 function registerationForm() {
-    let body = document.querySelector('body');
-    loginPage.classList.add('blur-lg');
-    sign_up.classList.remove('hidden', 'opacity-100');
-    let timeOut;
-}
+    singUpPage();
 
-        
-function closeSignup() {
+    if (clearTimeout) {
+        let sinupdiv = document.getElementById('sinupdiv');
+        let mainDiv = document.getElementById('mainDiv');
+        sinupdiv.classList.remove('hidden');
+        mainDiv.classList.add('blur-md');
 
-    mainDiv.classList.remove('blur-md');
-    loginPage.classList.remove('blur-lg');
-    sign_up.classList.add('hidden');
-
-
-}
-
-
-
-
-window.onload = function () {
-    let sinupdiv = document.getElementById('sinupdiv');
-    let mainDiv = document.getElementById('mainDiv');
-    if (sinupdiv) {
-        setTimeout(() => {
-            sinupdiv.classList.remove('hidden');
-            mainDiv.classList.add('blur-md');
-        }, 10000);
 
     }
 
 
+
 }
 
 
-setInterval(() => {
 
-}, interval);
+
+function closeSignup() {
+
+    mainDiv.classList.remove('blur-md');
+    loginPage.classList.remove('blur-lg');
+    sinupdiv.classList.add('hidden');
+
+
+}
+
+
+let timeOut;
+
+function startTimer() {
+    timeOut = setTimeout(() => {
+        console.log('time out.')
+        registerationForm();
+
+    }, 15000);
+}
+
+
+function stopTimer() {
+    clearTimeout(timeOut);
+    console.log('stop timer called.');
+    singUpPage();
+}
+
+
+window.onload = startTimer;
+
+
+function singUpPage() {
+    stopTimes.addEventListener('click', function () {
+        stopTimer();
+    });
+
+
+}
+
+
+
