@@ -16,7 +16,7 @@
     <div id="loginPage" class="flex justify-center items-center m-auto">
     <div id="mainDiv" class="rounded-lg hover:shadow-slate-200 hover:shadow-lg hover:cursor-pointer  relative border-2 blur-none  border-black md:max-w-prose sm:max-w-screen-sm max-w-screen-lg md:h-screen max-h-screen">
     <div>
-        <img id="logoImage" title="Good Luck!" class=" cursor-pointer transition-opacity duration-500 m-auto rounded-full w-60 h-auto my-9 border-2 border-slate-950" src="./static/welcome.png" alt="quizImage" srcset="">
+        <img id="logoImage" title="Good Luck!" class=" cursor-pointer transition-opacity duration-500 m-auto rounded-full w-60 h-auto mt-6 border-2 border-slate-950" src="./static/welcome.png" alt="quizImage" srcset="">
     </div>
     <h1 class="text-center m-auto md:text-3xl sm:text-2xl capitalize font-serif font-bold">Welcome to Quiz Application</h1>
     <div class="border-2 mx-6 p-0 md:mt-2 rounded-md">
@@ -45,8 +45,8 @@
     </div>
     </div>
     </div>
-    <div id="sign_up" class="flex justify-center items-center text-black font-serif font-bold ">
-        <div id="sinupdiv" class="hidden absolute md:top-28 top-0 max-w-screen-sm h-screen rounded-lg shadow-lg transition-all ease-in-out duration-150 hover:shadow-slate-50 hover:border-none container md:max-w-screen-lg md:h-auto border-2  items-center text-center ">
+    <div id="sign_up" class="flex justify-center items-center text-black font-serif font-bold cursor-pointer ">
+        <div id="sinupdiv" class=" hidden absolute md:top-28 top-0 max-w-screen-sm h-screen rounded-lg shadow-lg transition-all ease-in-out duration-150 hover:shadow-slate-50 hover:border-none container md:max-w-screen-lg md:h-auto border-2  items-center text-center ">
             <h1 class="float-right font-serif cursor-pointer mt-14 md:m-4 uppercase text-3xl px-4 "><i onclick="closeSignup()" class="fa-solid fa-x"></i></h1>
             <div class="ml-16">
                 <h1 class=" flex justify-center font-serif md:mt-2 mt-10 uppercase text-3xl p-2 underline underline-offset-8 text-black rounded-md ">registeration</h1>
@@ -59,11 +59,11 @@
                     <tbody class="">
                     <tr>
                         <td><label class="float-left"  for="fname">first name:</label></td>
-                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
+                        <td><input id="firstName" class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
                     </tr>
                     <tr>
                         <td><label for="lname">last name:</label></tdclass=>
-                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
+                        <td><input id="lastName" class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
                     </tr>
                     <tr>
                         <td><label class="float-left" for="gender">gender:</label></tdass=>
@@ -73,16 +73,18 @@
                     </tr>
                     <tr>
                         <td><label for="emailAdd" class="float-left">email:</label></tdclass=>
-                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="email"></td>
+                        <td><input  id="emailAddress" class="w-80 p-2 rounded-sm  text-zinc-700" type="email"></td>
                     </tr>
                     <tr>
                         <td><label for="password" class="float-left">password:</label></tdass=>
-                        <td><input class="w-80 p-2 rounded-sm text-zinc-700" type="text"></td>
+                        <td><input id="passWord" class="w-80 p-2 rounded-sm text-zinc-700" type="password"></td>
+                        <td onclick="showPassword()" class="text-2xl"><i id="showPasswordIcon" class="fa-solid fa-eye-slash"></i></td>
                     </tr>
                 </tbody>
             </table>
+            <h1 class="text-center "><input class="mx-2" type="checkbox" name="genPassword" id="genPassword">Generate Password</h1>
             <div class="flex justify-center items-center m-4">
-            <button class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">next</button>
+            <button onclick="emailValidation()" class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">next</button>
             <button class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">Login as guest</button>
             </div>
             </div>
