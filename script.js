@@ -202,12 +202,12 @@ function showPassword() {
     let showPasswordIcon = document.getElementById('showPasswordIcon');
     if (showPasswordIcon.className == 'fa-solid fa-eye-slash') {
         // showPasswordIcon.className.remove('fa-solid fa-eye-slash');
-        showPasswordIcon.className ='fa-solid fa-eye';
+        showPasswordIcon.className = 'fa-solid fa-eye';
         passWord.type = 'text';
     }
     else if (showPasswordIcon.className == 'fa-solid fa-eye') {
         // showPasswordIcon.className.remove('fa-solid fa-eye');
-        showPasswordIcon.className ='fa-solid fa-eye-slash';
+        showPasswordIcon.className = 'fa-solid fa-eye-slash';
         passWord.type = 'password';
     }
 
@@ -218,8 +218,67 @@ function showPassword() {
 
 
 function passwordGenerator() {
-    
+    let words = "abcefghijklmnopqrstuvwxyz";
+    let newWords = '';
+    let num = '0123456789';
+    let specialChar = "`!@#$%^&*()_+{}[],<>?/-";
+    let flag = true;
+
+    // while (flag) { this is something gone wrong i need to make it correct
+        for (let i = 0; i < 8; i++) {
+            let newChar = Math.floor(Math.random() * words.length);
+            if (!newWords.includes(words.substring(newChar, newChar + 1))) {
+                newWords += words.substring(newChar, newChar + 1)
+                newSpecialChar = Math.floor(Math.random() * specialChar.length);
+                newNum = Math.floor(Math.random() * 10);
+            }
+            else {
+                i--;
+                continue;
+            }
+            if (!newWords.includes(newNum.toString())) {
+                newWords += newNum;
+            } else {
+                i--;
+                continue;
+            }
+            if (!newWords.includes(specialChar.substring(newSpecialChar, newSpecialChar + 1))) {
+                newWords += specialChar.substring(newSpecialChar, newSpecialChar + 1);
+
+            }
+            else {
+                i--;
+                continue;
+            }
+            if (newWords.length >= 8) {
+                flag = false;
+            }
+        }
+
+
+    }
+    console.log(newWords, newWords.length);
 }
+
+
+
+//         for (let z = 0; z < newWords.length; z++) {
+//             let newNum = Math.floor(Math.random() * 10);
+//             if (!newWords.includes(newNum) &&) {
+//                 newWords += newNum;
+
+//             }
+
+//         }
+//         if (newWords.length > 8) {
+//             break;
+//         }
+
+//     }
+
+//     console.log(newWords);
+// }
+
 
 
 
