@@ -187,7 +187,7 @@ function emailValidation() {
 
 function passwordValidation() {
     let passWordValue = passWord.value;
-    if (!isValidPassword(passWordValue) && passWordValue.length < 8) {
+    if (!isValidPassword(passWordValue) && passWordValue.length < 12) {
         alert("Using a strong password can help protect your account. A strong password should include a combination of uppercase letters, lowercase letters, numbers, and special characters.");
         passWord.classList.add('border-2', 'border-red-600');
     }
@@ -216,50 +216,67 @@ function showPassword() {
 
 }
 
+let count = 0;
+
+
+window.onload = function () {
+    count = 0;
+}
+function passwordGenerateAlert() {
+
+    if (count < 1) {
+        alert(`Generate a Strong Password:
+        Use at least 12 characters.
+        Include a mix of upper and lower case letters.
+        Add numbers and special characters for complexity.
+        Remember to keep it secret`);
+        count++;
+    }
+}
 
 function passwordGenerator() {
-    let words = "abcefghijklmnopqrstuvwxyz";
+    let words = "abcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let newWords = '';
     let num = '0123456789';
     let specialChar = "`!@#$%^&*()_+{}[],<>?/-";
-    let flag = true;
 
-    // while (flag) { this is something gone wrong i need to make it correct
-        for (let i = 0; i < 8; i++) {
-            let newChar = Math.floor(Math.random() * words.length);
-            if (!newWords.includes(words.substring(newChar, newChar + 1))) {
-                newWords += words.substring(newChar, newChar + 1)
-                newSpecialChar = Math.floor(Math.random() * specialChar.length);
-                newNum = Math.floor(Math.random() * 10);
-            }
-            else {
-                i--;
-                continue;
-            }
-            if (!newWords.includes(newNum.toString())) {
-                newWords += newNum;
-            } else {
-                i--;
-                continue;
-            }
-            if (!newWords.includes(specialChar.substring(newSpecialChar, newSpecialChar + 1))) {
-                newWords += specialChar.substring(newSpecialChar, newSpecialChar + 1);
+    for (let i = 0; i < 12; i++) {
+        const ranAlhpa = Math.floor(Math.random() * words.length);
+        const ranNum = Math.floor(Math.random() * num.length);
+        const ranSpecialChar = Math.floor(Math.random() * specialChar.length);
+        if (!newWords.includes(ranAlhpa) && !newWords.includes(ranNum) && !newWords.includes(ranSpecialChar)) {
+            newWords += words.substring(ranAlhpa, ranAlhpa + 1) + num.substring(ranNum, ranNum + 1) + specialChar.substring(ranSpecialChar, ranSpecialChar + 1);
 
-            }
-            else {
-                i--;
-                continue;
-            }
-            if (newWords.length >= 8) {
-                flag = false;
-            }
+        }
+        if (newWords.length >= 12) {
+            break;
         }
 
 
     }
-    console.log(newWords, newWords.length);
+    passWord.value = newWords;
 }
 
+
+function signupNextBtn() {
+    let firstNames = firstName.value;
+    let genderMale = male.value;
+    let genderFemale = female.value;
+    let emailValues = emailAdd.value;
+    let passWords = passWord.value;
+
+    if (firstNames == null || emailValues == null || passWords == null) {
+        if (!genderMale.checked && !genderFemale.checked) {
+            alert("Please select Gender.");
+
+        }
+        alert('Please provide complete information.')
+
+    } else {
+        alert('User has been created sucessfully.');
+    }
+
+}
 
 
 //         for (let z = 0; z < newWords.length; z++) {

@@ -26,7 +26,7 @@
         <!-- <p id="validator" class="opacity-0 flex justify-center items-center ml-12 my-1">Invalid username.</p> -->
         <br><br>
         <label for="password" class="capitalize items-center text-xl">Password:</label>
-        <input onkeyup="getPassword()" type="password" name="password" id="pwdValidate" class="mx-8 w-80 md:w-80 sm:max-w-screen-sm md:mx-8  rounded-lg h-10 py-1.5 pl-4 ring-2">
+        <input onkeyup="getPassword()"  type="password" name="password" id="pwdValidate" class="mx-8 w-80 md:w-80 sm:max-w-screen-sm md:mx-8  rounded-lg h-10 py-1.5 pl-4 ring-2">
     <p id="pwdValidator" class="opacity-0 flex justify-center items-center ml-14  my-1">Incorrect Username or Password.</p> 
     <button id="nextBtn" onclick="validateUserPassword()" type="button" class="flex justify-center items-center md:-mt-4 -mb-9 bg-green-700 text-white rounded  py-2 px-6 uppercase mx-auto">next</button>   
     </form>
@@ -77,12 +77,12 @@
                     </tr>
                     <tr>
                         <td><label for="password" class="float-left">password:</label></tdass=>
-                        <td><input id="passWord" class="w-80 p-2 rounded-sm text-zinc-700" type="password"></td>
+                        <td><input onclick="passwordGenerateAlert()" id="passWord" class="w-80 p-2 rounded-sm text-zinc-700" type="password"></td>
                         <td onclick="showPassword()" class="text-2xl"><i id="showPasswordIcon" class="fa-solid fa-eye-slash"></i></td>
                     </tr>
                 </tbody>
             </table>
-            <h1 class="text-center "><input class="mx-2" type="checkbox" name="genPassword" id="genPassword">Generate Password</h1>
+            <h1 class="text-center  "><input onclick="passwordGenerator()" class="mx-2" type="checkbox" name="genPassword" id="genPassword">Generate Password</h1>
             <div class="flex justify-center items-center m-4">
             <button onclick="emailValidation()" class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">next</button>
             <button class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">Login as guest</button>
