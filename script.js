@@ -10,10 +10,10 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const frb = firebase.initializeApp(firebaseConfig);
+const analytics = getAnalytics(frb);
 
-
+console.log(frb);
 // firebase connection string ends here
 
 
@@ -292,7 +292,7 @@ function signupNextBtn() {
 
     if (firstNames == "") {
         alert('Please provide complete information.')
-        firstName.classList.add('border-2','border-red-600');
+        firstName.classList.add('border-2', 'border-red-600');
     }
 
     if ((!genderFemale.checked) && (!genderMale.checked)) {
