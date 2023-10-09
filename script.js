@@ -1,4 +1,25 @@
 
+const firebaseConfig = {
+    apiKey: "AIzaSyBeOisxoK4vu5EfNB-03SjRVIhcPy7UJxY",
+    authDomain: "quizapp-4528b.firebaseapp.com",
+    projectId: "quizapp-4528b",
+    storageBucket: "quizapp-4528b.appspot.com",
+    messagingSenderId: "906214866211",
+    appId: "1:906214866211:web:3211e5b0cb78e6dbf56096",
+    measurementId: "G-N08VJ6BJ1L"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+// firebase connection string ends here
+
+
+
+
+
 const pswdValidate = document.getElementById('pwdValidate');
 const logoImage = document.getElementById('logoImage');
 const userName = document.getElementById('emailAdd');
@@ -11,7 +32,7 @@ var firstName = document.getElementById('firstName');
 var lastName = document.getElementById('lastName');
 var stopTimes = document.getElementById('stopTimes');
 var male = document.getElementById('Male');
-var female = document.getElementById('Female');
+var female = document.getElementById('female');
 var emailAdd = document.getElementById('emailAddress');
 var passWord = document.getElementById('passWord');
 
@@ -179,15 +200,19 @@ function isValidPassword(passWord) {
 
 function emailValidation() {
     let emailValue = emailAdd.value;
-    if (!isValidEmail(emailValue)) {
+    if (emailValue == "") {
+        alert('Please provide email address.')
+    } else if (!isValidEmail(emailValue)) {
         alert("Invalid Emaill Address");
     }
-    passwordValidation();
 }
 
 function passwordValidation() {
     let passWordValue = passWord.value;
-    if (!isValidPassword(passWordValue) && passWordValue.length < 12) {
+    if (passWordValue == "") {
+        alert('Please provide password.');
+        passWord.classList.add('border-2', 'border-red-600');
+    } else if (!isValidPassword(passWordValue) && passWordValue.length < 12) {
         alert("Using a strong password can help protect your account. A strong password should include a combination of uppercase letters, lowercase letters, numbers, and special characters.");
         passWord.classList.add('border-2', 'border-red-600');
     }
@@ -200,14 +225,14 @@ function passwordValidation() {
 function showPassword() {
     let showPass = document.getElementById('showPassword');
     let showPasswordIcon = document.getElementById('showPasswordIcon');
-    if (showPasswordIcon.className == 'fa-solid fa-eye-slash') {
+    if (showPasswordIcon.className == 'fa-solid fa-eye') {
         // showPasswordIcon.className.remove('fa-solid fa-eye-slash');
-        showPasswordIcon.className = 'fa-solid fa-eye';
+        showPasswordIcon.className = 'fa-solid fa-eye-slash';
         passWord.type = 'text';
     }
-    else if (showPasswordIcon.className == 'fa-solid fa-eye') {
+    else if (showPasswordIcon.className == 'fa-solid fa-eye-slash') {
         // showPasswordIcon.className.remove('fa-solid fa-eye');
-        showPasswordIcon.className = 'fa-solid fa-eye-slash';
+        showPasswordIcon.className = 'fa-solid fa-eye';
         passWord.type = 'password';
     }
 
@@ -265,16 +290,35 @@ function signupNextBtn() {
     let emailValues = emailAdd.value;
     let passWords = passWord.value;
 
-    if (firstNames == null || emailValues == null || passWords == null) {
-        if (!genderMale.checked && !genderFemale.checked) {
-            alert("Please select Gender.");
-
-        }
+    if (firstNames == "") {
         alert('Please provide complete information.')
-
-    } else {
-        alert('User has been created sucessfully.');
+        firstName.classList.add('border-2','border-red-600');
     }
+
+    if ((!genderFemale.checked) && (!genderMale.checked)) {
+        alert('Please select Gender.');
+    }
+    if (emailValues == "") {
+        emailValidation();
+        emailAdd.classList.add('border-2', 'border-red-600');
+    }
+    if (passWords == "") {
+        passwordValidation();
+    }
+
+
+
+
+    // if (firstNames == null || emailValues == null || passWords == null) {
+    //     if (!genderMale.checked && !genderFemale.checked) {
+    //         alert("Please select Gender.");
+
+    //     }
+    //     alert('Please provide complete information.')
+
+    // } else {
+    //     alert('User has been created sucessfully.');
+    // }
 
 }
 

@@ -10,6 +10,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="./static//favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <script src="https://kit.fontawesome.com/85946bf552.js" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js"></script>
       <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[url('./static/exam.jpg')] backdrop-blur-lg bg-center bg-no-repeat w-screen h-screen  bg-cover">
@@ -78,13 +80,13 @@
                     <tr>
                         <td><label for="password" class="float-left">password:</label></tdass=>
                         <td><input onclick="passwordGenerateAlert()" id="passWord" class="w-80 p-2 rounded-sm text-zinc-700" type="password"></td>
-                        <td onclick="showPassword()" class="text-2xl"><i id="showPasswordIcon" class="fa-solid fa-eye-slash"></i></td>
+                        <td onclick="showPassword()" class="text-2xl"><i id="showPasswordIcon" class="fa-solid fa-eye"></i></td>
                     </tr>
                 </tbody>
             </table>
             <h1 class="text-center  "><input onclick="passwordGenerator()" class="mx-2" type="checkbox" name="genPassword" id="genPassword">Generate Password</h1>
             <div class="flex justify-center items-center m-4">
-            <button onclick="emailValidation()" class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">next</button>
+            <button onclick="signupNextBtn()" class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">next</button>
             <button class="md:mx-8 ml-16 md:ml-0 border px-6 py-2 hover:shadow-sm hover:shadow-slate-200 bg-green-800 capitalize rounded-md text-zinc-200 font-serif items-center" type="button">Login as guest</button>
             </div>
             </div>
