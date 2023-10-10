@@ -1,7 +1,7 @@
-
 const firebaseConfig = {
     apiKey: "AIzaSyBeOisxoK4vu5EfNB-03SjRVIhcPy7UJxY",
     authDomain: "quizapp-4528b.firebaseapp.com",
+    databaseURL: "https://quizapp-4528b-default-rtdb.firebaseio.com",
     projectId: "quizapp-4528b",
     storageBucket: "quizapp-4528b.appspot.com",
     messagingSenderId: "906214866211",
@@ -180,8 +180,16 @@ window.onload = startTimer;
 
 
 function singUpPage() {
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     // Your code here, including the singUpPage() function
+    //     singUpPage();
+    //     registerationForm();
+    // });
+    let stopTimes = document.getElementById('stopTimes');
     stopTimes.addEventListener('click', function () {
         stopTimer();
+        registerationForm();
     });
 
 
@@ -305,22 +313,44 @@ function signupNextBtn() {
     if (passWords == "") {
         passwordValidation();
     }
+}
 
+function singupWithFirebase() {
 
+    let fname = firstName.value;
+    let lname = lastName.value;
+    let gMale = male.value;
+    let gFemale = female.value;
+    let emails = emailAdd.value;
 
+    let userDetail = {
+        firstName: fname.value,
+        lastName: lname.value,
+        email: emails.value,
+        gender: gMale.value,
+        gender: gFemale.value,
+        login: Date_now()
+    }
 
-    // if (firstNames == null || emailValues == null || passWords == null) {
-    //     if (!genderMale.checked && !genderFemale.checked) {
-    //         alert("Please select Gender.");
-
-    //     }
-    //     alert('Please provide complete information.')
-
-    // } else {
-    //     alert('User has been created sucessfully.');
-    // }
+    console.log(userDetail);
 
 }
+
+
+
+
+// if (firstNames == null || emailValues == null || passWords == null) {
+//     if (!genderMale.checked && !genderFemale.checked) {
+//         alert("Please select Gender.");
+
+//     }
+//     alert('Please provide complete information.')
+
+// } else {
+//     alert('User has been created sucessfully.');
+// }
+
+
 
 
 //         for (let z = 0; z < newWords.length; z++) {
