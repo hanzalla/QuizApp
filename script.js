@@ -1,3 +1,26 @@
+const pswdValidate = document.getElementById('pwdValidate');
+const logoImage = document.getElementById('logoImage');
+const userName = document.getElementById('emailAdd');
+var invalidUsername = document.getElementById('validator');
+var invalidPassword = document.getElementById('pwdValidator');
+var mainDiv = document.getElementById('mainDiv');
+var sign_up = document.getElementById('sign_up');
+var loginPage = document.getElementById('loginPage');
+var firstName = document.getElementById('firstName');
+var lastName = document.getElementById('lastName');
+var stopTimes = document.getElementById('stopTimes');
+var male = document.getElementById('Male');
+var female = document.getElementById('female');
+var emailAdd = document.getElementById('emailAddress');
+var passWord = document.getElementById('passWord');
+
+
+var pwdImageSource = './static/wrongPswd.png';
+var corImageSource = './static/correctPwd.png';
+var originalImageSource = './static/welcome.png';
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyBeOisxoK4vu5EfNB-03SjRVIhcPy7UJxY",
     authDomain: "quizapp-4528b.firebaseapp.com",
@@ -20,26 +43,6 @@ console.log(frb);
 
 
 
-const pswdValidate = document.getElementById('pwdValidate');
-const logoImage = document.getElementById('logoImage');
-const userName = document.getElementById('emailAdd');
-var invalidUsername = document.getElementById('validator');
-var invalidPassword = document.getElementById('pwdValidator');
-var mainDiv = document.getElementById('mainDiv');
-var sign_up = document.getElementById('sign_up');
-var loginPage = document.getElementById('loginPage');
-var firstName = document.getElementById('firstName');
-var lastName = document.getElementById('lastName');
-var stopTimes = document.getElementById('stopTimes');
-var male = document.getElementById('Male');
-var female = document.getElementById('female');
-var emailAdd = document.getElementById('emailAddress');
-var passWord = document.getElementById('passWord');
-
-
-var pwdImageSource = './static/wrongPswd.png';
-var corImageSource = './static/correctPwd.png';
-var originalImageSource = './static/welcome.png';
 
 
 
@@ -149,7 +152,8 @@ function registerationForm() {
 
 
 function closeSignup() {
-
+    let mainDiv = document.getElementById('mainDiv');
+     let loginPage = document.getElementById('loginPage');
     mainDiv.classList.remove('blur-md');
     loginPage.classList.remove('blur-lg');
     sinupdiv.classList.add('hidden');
@@ -249,11 +253,10 @@ function showPassword() {
 
 }
 
-let count = 0;
 
 
 window.onload = function () {
-    count = 0;
+   var count = 0;
 }
 function passwordGenerateAlert() {
 
@@ -287,6 +290,7 @@ function passwordGenerator() {
 
 
     }
+    const passWord = document.getElementById('passWord');
     passWord.value = newWords;
 }
 
@@ -317,22 +321,52 @@ function signupNextBtn() {
 
 function singupWithFirebase() {
 
-    let fname = firstName.value;
-    let lname = lastName.value;
-    let gMale = male.value;
-    let gFemale = female.value;
-    let emails = emailAdd.value;
+    let fname = document.getElementById('firstName');
+    let lname = document.getElementById('lastName');
+    let gender = document.getElementsByName('gender');
+    let emailAdd = document.getElementById('emailAddress');
+    let selectedGender = "";
+
+    for (let i = 0; i < gender.length; i++) {
+        if (gender[i].checked) {
+            selectedGender += gender[i].value;
+            break;            
+        }
+
+    }
+
+    console.log(fname, lname);
 
     let userDetail = {
         firstName: fname.value,
         lastName: lname.value,
-        email: emails.value,
-        gender: gMale.value,
-        gender: gFemale.value,
-        login: Date_now()
+        email: emailAdd.value,
+        gender: selectedGender,
+        login: Date.now()
     }
 
-    console.log(userDetail);
+    frb.database().ref('userDetail').set(userDetail);
+    
+    
+    frb.auth().createUserWithWithEmailAndPassword(emailAdd, password)
+    .then((userData) => {
+        const user = userData.user;
+        
+        user.SenEmailVerification()
+        .then(() => {
+            alert('User Created Successfully!!Please check email and verify your ID');
+            
+        })
+            .catch((error) => {
+                console.error('Email Verification Link not sent:', error);
+            })
+        
+    })
+    .catch ((error) => {
+        console.error('Registeration failed', error);  
+    })
+    
+    
 
 }
 
