@@ -8,12 +8,12 @@ var sign_up = document.getElementById('sign_up');
 var loginPage = document.getElementById('loginPage');
 var firstName = document.getElementById('firstName');
 var lastName = document.getElementById('lastName');
-var stopTimes = document.getElementById('stopTimes');
+// var stopTimes = document.getElementById('stopTimes');
 var male = document.getElementById('Male');
 var female = document.getElementById('female');
 var emailAdd = document.getElementById('emailAddress');
 var passWord = document.getElementById('passWord');
-
+var timeOut = null;
 
 var pwdImageSource = './static/wrongPswd.png';
 var corImageSource = './static/correctPwd.png';
@@ -153,7 +153,7 @@ function registerationForm() {
 
 function closeSignup() {
     let mainDiv = document.getElementById('mainDiv');
-     let loginPage = document.getElementById('loginPage');
+    let loginPage = document.getElementById('loginPage');
     mainDiv.classList.remove('blur-md');
     loginPage.classList.remove('blur-lg');
     sinupdiv.classList.add('hidden');
@@ -162,7 +162,7 @@ function closeSignup() {
 }
 
 
-let timeOut = null;
+// let timeOut;
 
 function startTimer() {
     timeOut = setTimeout(() => {
@@ -180,7 +180,7 @@ function stopTimer() {
 }
 
 
-window.onload = startTimer;
+// window.onload = startTimer;
 
 
 function singUpPage() {
@@ -256,7 +256,9 @@ function showPassword() {
 
 
 window.onload = function () {
-   var count = 0;
+    var count = 0;
+    // var timeOut = null;
+    startTimer();
 }
 function passwordGenerateAlert() {
 
@@ -325,17 +327,20 @@ function singupWithFirebase() {
     let lname = document.getElementById('lastName');
     let gender = document.getElementsByName('gender');
     let emailAdd = document.getElementById('emailAddress');
+    let emailValue = emailAdd.value;
+    let password = document.getElementById('passWord');
+    let pswd = password.value;
     let selectedGender = "";
 
     for (let i = 0; i < gender.length; i++) {
         if (gender[i].checked) {
             selectedGender += gender[i].value;
-            break;            
+            break;
         }
 
     }
 
-    console.log(fname, lname);
+    // console.log(fname, lname);
 
     let userDetail = {
         firstName: fname.value,
@@ -346,27 +351,27 @@ function singupWithFirebase() {
     }
 
     frb.database().ref('userDetail').set(userDetail);
-    
-    
-    frb.auth().createUserWithWithEmailAndPassword(emailAdd, password)
-    .then((userData) => {
-        const user = userData.user;
-        
-        user.SenEmailVerification()
-        .then(() => {
-            alert('User Created Successfully!!Please check email and verify your ID');
-            
+
+
+    frb.auth().createUserWithEmailAndPassword(emailValue, pswd)
+        .then((userData) => {
+            const user = userData.user;
+
+            user.sendEmailVerification()
+                .then(() => {
+                    alert('User Created Successfully!!Please check email and verify your ID');
+
+                })
+                .catch((error) => {
+                    console.error('Email Verification Link not sent:', error);
+                })
+
         })
-            .catch((error) => {
-                console.error('Email Verification Link not sent:', error);
-            })
-        
-    })
-    .catch ((error) => {
-        console.error('Registeration failed', error);  
-    })
-    
-    
+        .catch((error) => {
+            console.error('Registeration failed', error);
+        })
+
+
 
 }
 
